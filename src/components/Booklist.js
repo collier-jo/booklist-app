@@ -2,17 +2,23 @@ import React from 'react';
 import { ThemeContext } from '../contexts/ThemeContext';
 
 const Booklist = (props) => {
+    const [books, setBooks] = React.useState([
+        'The Palm-Wine Drinkard',
+        'The Left Hand of Darkness',
+        'Salt Slow'
+    ])
+
+    
     return (  
-        
         <ThemeContext.Consumer>{(context) => {
             const { isLightTheme, light, dark } = context;
             const theme = isLightTheme ? light : dark;
             return(
                 <div className="book-list" style={{background: theme.syntax, color: theme.bg}}>
                 <ul >
-                    <li style={{ background: theme.ui }}>The Palm-Wine Drinkard</li>
-                    <li style={{ background: theme.ui }}>The Left Hand of Darkness</li>
-                    <li style={{ background: theme.ui }}>Salt Slow</li>
+                    {books.map(book => {
+                        return ( <li style={{background: theme.ui}}> {book} </li>)
+                    })}
                 </ul>
                 </div>
             )
