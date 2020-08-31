@@ -8,6 +8,11 @@ const Booklist = (props) => {
     const addBook = (title) => {
         setBooks([...books, title])
     }
+
+    const removeBook = (e) => {
+        let filteredArray = books.filter(item => item !== e.target.value);
+        setBooks(filteredArray);
+    }
     
     return (  
         <ThemeContext.Consumer>{(context) => {
@@ -17,7 +22,11 @@ const Booklist = (props) => {
                 <div className="book-list" style={{background: theme.syntax, color: theme.bg}}>
                 <ul >
                     {books.map(book => {
-                        return ( <li style={{background: theme.ui}}> {book} </li>)
+                        return ( 
+                        <li style={{background: theme.ui}}>
+                             {book}
+                             <button value={book} onClick={removeBook}> Delete </button>
+                        </li>)
                     })}
                 </ul>
                 <BookForm addBook={addBook}/>
