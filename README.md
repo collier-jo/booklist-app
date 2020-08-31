@@ -13,7 +13,7 @@ object | message
 ||delete|
 ||update| 
 |Context|| 
-|| Theme |s
+|| Theme |
 
 
 ## Start
