@@ -13,6 +13,7 @@ const Booklist = (props) => {
         let filteredArray = books.filter(item => item !== e.target.value);
         setBooks(filteredArray);
     }
+
     
     return (  
         <ThemeContext.Consumer>{(context) => {
@@ -23,8 +24,8 @@ const Booklist = (props) => {
                 <ul >
                     {books.map(book => {
                         return ( 
-                        <li style={{background: theme.ui}}>
-                             {book}
+                        <li style={{background: theme.ui}} >
+                             <div id={book}> {book} </div>
                              <button value={book} onClick={removeBook}> Delete </button>
                         </li>)
                     })}
