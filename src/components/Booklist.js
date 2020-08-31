@@ -1,13 +1,13 @@
 import React from 'react';
 import { ThemeContext } from '../contexts/ThemeContext';
+import BookForm from './NewBookForm';
 
 const Booklist = (props) => {
-    const [books, setBooks] = React.useState([
-        'The Palm-Wine Drinkard',
-        'The Left Hand of Darkness',
-        'Salt Slow'
-    ])
+    const [books, setBooks] = React.useState([ ])
 
+    const addBook = (title) => {
+        setBooks([...books, title])
+    }
     
     return (  
         <ThemeContext.Consumer>{(context) => {
@@ -20,6 +20,7 @@ const Booklist = (props) => {
                         return ( <li style={{background: theme.ui}}> {book} </li>)
                     })}
                 </ul>
+                <BookForm addBook={addBook}/>
                 </div>
             )
         }}
