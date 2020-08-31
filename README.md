@@ -23,6 +23,8 @@ yarn start
 yarn start run test
 
 ## To Install 
-• Clone repo
-• yarn install 
-• yarn start
+```
+- Clone repo
+- yarn install 
+- yarn start
+```
